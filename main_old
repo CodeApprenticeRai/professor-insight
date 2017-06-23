@@ -1,0 +1,56 @@
+import requests
+import nltk
+from bs4 import BeautifulSoup
+
+##Objective 1: Isolate all comments
+##Find GET address
+##Find correct query 
+##Convert to convinient format (string?)
+
+params = {"solrformat": "true",
+          "rows": "1", # set it high number to always get all rows.
+          "q": "",
+          "defType": "edismax",
+          "qf": "teacherfullname_t^2000 autosuggest",
+          "bf": "pow(total_number_of_ratings_i,2.1)",
+          "sort": "total_number_of_ratings_i desc",
+          "siteName": "rmp",
+          "fl": "sratingComments" }#"pk_id teacherfirstname_t teacherlastname_t total_number_of_ratings_i averageratingscore_rf schoolname_s schoolcity_s schoolstate_full_s schoolid_s"}
+
+url = "http://search.mtvnservices.com/typeahead/suggest/"
+query = '*:* AND schoolid_s:{id} AND pk_id:{t_id} :' # AND  AND {comments}'
+# with requests.Session() as s:
+    # s.headers.update({"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"})
+    # soup = BeautifulSoup(s.get("http://www.ratemyprofessors.com/ShowRatings.jsp?tid=433738").content)
+    # # pass the school id which we can parse from the page.
+    #params["q"] = query.format(id=soup.select_one("[data-schoolid]")["data-schoolid"], comments = soup.select_one("comments"))
+    # res = s.get(url, params=params)
+
+    # json_data = res.json()
+
+with requests.Session() as s:
+	s.headers.update({"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"})
+	soup = BeautifulSoup(s.get("http://www.ratemyprofessors.com/ShowRatings.jsp?tid=433738").content)
+	yes = soup.find_all('p','commentsParagraph')
+	#json_data = yes.json()
+	
+from pprint import pprint as pp
+#pp(json_data)
+print(yes.prettify())
+
+##Objective 2: Find out if a word is an adjective
+##Proposed Solution: v1: Create a list of common words that cannot be adjectives. Then search through all the text and use NLTK to flag all the unexcluded words that are adjectives. Put them all in a dictionary.
+##PS v1.1:  Use Sentinment Analysis to find the sentiment of the words, and map them to positive/negative colors
+l_tag= nltk.pos_tag(yes)
+
+#very slow
+adjs = [i[0] for i in l_tag if i[1] == 'JJ']
+
+##Objective 3: Frequency Analysis
+##Proposed Solution: Use a dictionary Counter, and then for speed use a library function. 
+anal = Counter(adj)
+##Generating the word Map
+##PS: Use a library. Use the counter information to determine the size of each word.
+
+##Create the chrome extension/ website 
+##A url button, and an ad. Simple background. Some instructions.
