@@ -1,19 +1,24 @@
 #main_title {
   text-align: center;
-  font-size: 5em;
+  #font-size: 5em;
   text-shadow: 0 0 4px white;
   color: white;
-  padding: 1.5em;
+  #padding: 1.5em;
 }
 
+#ptitle {
+  width: auto;
+}
 body {
   background-color: #DFE5FF;
+  #position:absolute;
 }
 
 .input-group {
   //padding-left: 4em;
   //padding-right: 4em;
   //font-size: 4em;
+
 }
 
 /*//Make urltextfield text resize with window and increase button text size*/
@@ -24,25 +29,64 @@ body {
 
 }
 
+#h_fill{
+
+	height: 2em;
+
+}
+
+#m_fill{
+
+	height: 2em;
+
+}
+
+#works_text{
+  padding-left: 16px;
+}
 #only_button {
   height: 4em;
   //font-size: 1em;
 }
 
-.footer {
-    position: absolute;
-    display: flex;
+#footer {
+
+	border-top: thick solid #7A737F;
+    #position: absolute;
+	  #padding: 20px 0;
+    #display: flex;
     bottom: 0;
-    width: 100%;
-    height: 70px;
-    background-color: #9A97CC;
+    #width: 100%;
+    #height: 70px;
+    #background-color: #9A97CC;
 }
 
 #fcontainer {
-  
+
 
 }
 
+#f_fill{
+
+	height: 3em;
+
+}
+
+#f_row {
+	display: flex;
+	align-items: right;
+
+
+}
+
+footer ul {
+  list-style: none;
+}
+
+.col-sm-2 {
+	padding: 1.25em;
+
+}
 #pf {
   text-align: right;
   padding: 1.25em;
