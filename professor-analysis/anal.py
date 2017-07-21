@@ -12,7 +12,7 @@ def get_html(url):
 	soup = BeautifulSoup(s.get(url).content)
 	return soup.find_all('p','commentsParagraph')
 	
-def get_adj(url):
+def get_adjs(url):
 	html = get_html(url)
 	
 	text = [i.string for i in html]
