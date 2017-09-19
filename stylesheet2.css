@@ -30,7 +30,7 @@
   #rgba(51, 51, 51, 0.11);
   #position:absolute;
   #min-height: 100%;
-  //padding: 0 0 100px;
+  padding: 0 0 100px;
   position: relative;
 }
 
@@ -78,11 +78,6 @@
   //font-size: 1em;
 }
 
-#chart_div_outer {
-	
-    padding-left: 40px;
-}
-
 #footer {
 
 	  border-top: thick solid #7A737F;
@@ -101,7 +96,7 @@
 
 #f_fill{
 
-	height: 2em;
+	height: 3em;
 
 }
 

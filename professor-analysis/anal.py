@@ -35,6 +35,8 @@ def get_adjs(url):
 				adjs.append(word[0])
 	
 	adjs_counted = collections.Counter(adjs_excl).most_common()
+	adjs_counted = [[a[0],a[1]] for a in adjs_counted]
+	
 	return adjs_counted
 	
 def get_wc:
