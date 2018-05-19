@@ -1,2 +1,2 @@
 # professor-insight
-A web application for generating a word cloud (amd other visualizations) to describe professors using ratemyprofessor submissions
+A web application for analyzing the frequency of words used to describe professors on ratemyprofessor.com.
